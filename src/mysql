@@ -1,0 +1,29 @@
+create schema acai;
+use acai;
+
+CREATE TABLE pedido (
+id_pedido int primary key auto_increment,
+ds_estado varchar(400)
+);
+
+Create table itens (
+id_item int primary key auto_increment,
+id_pedido int,
+ds_url varchar(200),
+dp_preco float,
+ds_nome varchar(100),
+ds_tamanho varchar (100),
+ds_acompanhamentos varchar(200),
+FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido) 
+);
+
+create table login(
+id_login int primary key auto_increment, 
+ds_email varchar(200),
+ds_senha varchar(200)
+);
+
+insert into login(ds_email,ds_senha) values('adm@gmail.com','123');
+
+insert into pedido(ds_estado) values('Em Preparo');
+
